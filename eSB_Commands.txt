@@ -1,0 +1,63 @@
+# Smart Box Interface Library
+# By Phil
+# http://stuffandnonsense.elephantandchicken.co.uk
+# 20200307
+# This is an early development version
+# of a python module designed to control the
+# Economatics Smart Box
+# Testing is conducted on an "SB-04"
+
+libVersion : Return this library's version number (string)
+
+open(port) : Return True if port is opend. Suppy port as string.
+
+close() : Close the open port. Returns True if port closed.
+
+flush() : Empty serial input buffer
+
+get_sb_copyright(): Return "credits" from Smart Box (string).
+
+get_sb_ver() : Return OS ROM version number (string)
+
+get_command_name(cmd): Return the name of the command identified by number (string)
+
+status() : Returns this library version, whether the serial port is open and the OS ROM version (string)
+
+d_out_on_all() : Turns all digital outputs on
+
+d_out_off_all() : Turns all digital outputs off
+
+d_out_all(val1) : Sets all digital outputs in one go based on an 8 bit number. Each bit represents an output.
+			255 = all on, 0 = all off. 3 = the first and second output on.
+
+d_out_on_chn(chn) : Turns on a digital output as identified by chn where chn a number between 0 and 7
+
+d_out_off_chn(chn) : Turns off a digital output as identified by chn where chn a number between 0 and 7
+
+d_out_chn(chn, val1) : Sets a digital output as identified by chn where chn a number between 0 and 7, to the
+			value passed in val1 (0 or 1, or False or True)
+
+d_in_all() : Returns a byte representing the status of all digital inputs (255 = all on etc.) (integer)
+
+d_in_chn(chn) : Returns a 0 or a 1 representing the stat us of digital input chn, where chn is a value
+			between 0 and 7 (number)
+
+m_fwd_chn(chn) : Turns on motor number chn (1 to 4), in the forward direction
+
+m_bkw_chn(chn) : Turns on motor number chn (1 to 4), in the backward direction
+
+m_stp_chn(chn)  : Turns off motor number chn (1 to 4), in the forward direction
+
+read_byte(addr) : Returns the contents of memory address "addr" (number)
+
+a_sensors() : Returns a list of all sensor values - this should work on older Smart Boxes
+
+a_sensors_new() : Returns a list of all sensor values - this should work on newer (i.e. SB-04) Smart Boxes
+
+a_in_chn(chn) : Returns a byte representing the sensor input "chn" (1 to 4) (number)
+
+a_in_f_chn(chn) : Returns a byte representing the sensor input "chn" (1 to 4) using "force" (number)
+
+a_sensor_table(val1) : Returns a weird string with escape characters detailing the sensor of type "val1"
+			where val1 is a number between 3 and 33
+
