@@ -26,10 +26,14 @@ def close():
 
 def flush():
 	global ser
+	readText = ""
 	if ser.is_open:
 		readTest = ""
 		while ser.inWaiting() > 0:
-                        readText += ser.read(1)
+			time.sleep(0.5)
+			while ser.inWaiting() > 0:
+                        	readText += ser.read(1)
+		
 
 def get_sb_copyright():
 	global ser
@@ -180,12 +184,12 @@ def m_stp_chn(chn):
         else:
                 raise NameError('Serial connection not open - try calling eSB.open(xyz) first')
 
-#def m_spd_chn(spd):
-#        global ser
-#        if ser.is_open:
-#                ser.write(chr(15)+chr(spd))
-#        else:
-#                raise NameError('Serial connection not open - try calling eSB.open(xyz) first')
+def m_pwr_chn(num, onT, offT):
+        global ser
+        if ser.is_open:
+                ser.write(chr(15)+chr(num)+chr(onT)+chr(offT))
+        else:
+                raise NameError('Serial connection not open - try calling eSB.open(xyz) first')
 
 def read_byte(addr):
 	global ser
