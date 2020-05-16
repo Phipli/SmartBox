@@ -1,15 +1,15 @@
 #!/usr/bin/python
 
-# Smart Box Interface Library
+# Smart Box ROM Downloader
 # By Phil
 # http://stuffandnonsense.elephantandchicken.co.uk
-# 20200307
-# This is an early development version
-# of a python module designed to control the
-# Economatics Smart Box
-# Testing is conducted on an "SB-04"
-
-# This file is an example using some functions from the library
+# 20200516
+# This is the first release of a python
+# script designed to download the ROM from
+# a connected Economatics Smart Box
+# Testing is conducted on an "SB-01"
+# Note that the eSB library is needed
+# https://github.com/Phipli/SmartBox
 
 ## Extract from reference for memory download :
 #52		UploadData (OS 2), UploadData740 (OS 3),
